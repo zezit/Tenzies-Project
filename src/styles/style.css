@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    list-style: none;
+    font-family: Inter, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+}
+
+.out-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b2434;
+    width: 360px;
+    height: 379px;
+    border-radius: 10px;
+}
+
+.inner-size {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    width: 320px;
+    height: 320px;
+    border-radius: 10px;
+    /* padding: 33.28px 34.56px; */
+}
+
+.inner-size > h2 {
+    font-family: Karla, sans-serif;
+    font-style: normal;
+    color: #2b283a;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.03em;
+}
+
+.inner-size > p {
+    max-width: 232.96px;
+    margin-top: 7px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #4a4e74;
+    font-size: 13.11px;
+}
+
+.dices {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 17.92px;
+    row-gap: 18.56px;
+}
+
+.dado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Karla, sans-serif;
+    font-weight: 700;
+    font-size: 20.59px;
+    color: #2b283a;
+    background-color: #fff;
+    width: 35.84px;
+    height: 35.84px;
+    border-radius: 4px;
+    -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.dado:hover {
+    -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.roll-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25.6px;
+    background-color: #5035ff;
+    width: 92.16px;
+    height: 35.84px;
+    border-radius: 5px;
+    font-style: normal;
+    font-family: Karla, sans-serif;
+    font-weight: 700;
+    font-size: 16.4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.roll-button:hover {
+    background-color: #715df8;
+    -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
