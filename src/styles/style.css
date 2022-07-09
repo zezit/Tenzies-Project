@@ -12,17 +12,7 @@ main {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: whitesmoke;
-}
-
-.out-size {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #0b2434;
-    width: 360px;
-    height: 379px;
-    border-radius: 10px;
 }
 
 .inner-size {
@@ -34,7 +24,6 @@ main {
     width: 320px;
     height: 320px;
     border-radius: 10px;
-    /* padding: 33.28px 34.56px; */
 }
 
 .inner-size > h2 {
@@ -109,4 +98,14 @@ main {
     -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dont-change{
+    background-color: #59E391;
+    transition-duration: 250ms;
+}
+
+.change{
+    transition-duration: 250ms;
+    background-color: #fff;
 }
