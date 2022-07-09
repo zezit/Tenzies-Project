@@ -26,6 +26,14 @@ main {
     border-radius: 10px;
 }
 
+.confetti {
+    position: absolute;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
 .inner-size > h2 {
     font-family: Karla, sans-serif;
     font-style: normal;
@@ -100,12 +108,12 @@ main {
     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-.dont-change{
-    background-color: #59E391;
+.dont-change {
+    background-color: #59e391;
     transition-duration: 250ms;
 }
 
-.change{
+.change {
     transition-duration: 250ms;
     background-color: #fff;
 }

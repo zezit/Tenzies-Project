@@ -56,19 +56,21 @@ function App() {
     // lock dice number
     function hold(dice) {
         const newSet = [];
-        setRow(() => {
-            row.forEach((dado) => {
-                if (dado.id === dice) {
-                    newSet.push({
-                        ...dado,
-                        hold: !dado.hold,
-                    });
-                } else {
-                    newSet.push({ ...dado });
-                }
+        if (!tenzies) {
+            setRow(() => {
+                row.forEach((dado) => {
+                    if (dado.id === dice) {
+                        newSet.push({
+                            ...dado,
+                            hold: !dado.hold,
+                        });
+                    } else {
+                        newSet.push({ ...dado });
+                    }
+                });
+                return newSet;
             });
-            return newSet;
-        });
+        }
     }
 
     function restart() {

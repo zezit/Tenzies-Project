@@ -1,5 +1,7 @@
 import React from "react";
 import Dice from "./Dice";
+// import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from "react-confetti";
 
 function Tenzies(props) {
     function handler(diceId) {
@@ -21,6 +23,7 @@ function Tenzies(props) {
 
     return (
         <div className="inner-size">
+            {props.tenzies ? <Confetti style={{transitionDuration: "250ms"}}/> : ""}
             <h2>Tenzies</h2>
             <p>
                 Roll until all dice are the same. Click each die to freeze it at
