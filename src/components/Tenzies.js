@@ -1,7 +1,6 @@
 import React from "react";
 import Dice from "./Dice";
-// import useWindowSize from 'react-use/lib/useWindowSize'
-import Confetti from "react-confetti";
+import menu from "../images/menu.svg";
 
 function Tenzies(props) {
     function handler(diceId) {
@@ -23,25 +22,22 @@ function Tenzies(props) {
 
     return (
         <div className="inner-size">
-            {props.tenzies ? (
-                <Confetti 
-                style={{ transitionDuration: "250ms" }} 
-                />
-            ) : (
-                ""
-            )}
+            <i className="menu">
+                <img src={menu} alt="#" onClick={props.changeScreen} />
+            </i>
             <h2>Tenzies</h2>
             <p>
                 Roll until all dice are the same. Click each die to freeze it at
                 its current value between rolls.
             </p>
             <div className="dices">{Dices}</div>
-            <i
-                className="roll-button"
-                onClick={props.tenzies ? props.restart : props.rollDices}
-            >
-                {props.tenzies ? "New Game" : "Roll"}
-            </i>
+            {!props.tenzies ? (
+                <i className="roll-button" onClick={props.rollDices}>
+                    Roll
+                </i>
+            ) : (
+                ""
+            )}
         </div>
     );
 }

@@ -1,5 +1,7 @@
 import React from "react";
+import Confetti from "react-confetti";
 import Tenzies from "./components/Tenzies";
+import History from "./components/History";
 
 function App() {
     const initialArray = [];
@@ -14,6 +16,7 @@ function App() {
 
     const [tenzies, setTenzies] = React.useState(false);
     const [row, setRow] = React.useState(initialArray);
+    const [screen, setScreen] = React.useState(true);
 
     React.useEffect(() => {
         const toCompareNum = row[0].number;
@@ -73,20 +76,39 @@ function App() {
         }
     }
 
+    function changeScreen() {
+        setScreen((prev) => !prev);
+    }
+
     function restart() {
         setRow(initialArray);
         setTenzies(false);
+        setScreen(true);
     }
 
     return (
         <main className="App">
-            <Tenzies
-                rollDices={rollDices}
-                dice={row}
-                hold={hold}
-                tenzies={tenzies}
-                restart={restart}
-            />
+            {tenzies ? (
+                <Confetti style={{ transitionDuration: "250ms" }} />
+            ) : (
+                ""
+            )}
+            {screen ? (
+                <Tenzies
+                    rollDices={rollDices}
+                    dice={row}
+                    hold={hold}
+                    tenzies={tenzies}
+                    restart={restart}
+                    changeScreen={changeScreen}
+                />
+            ) : (
+                <History
+                    tenzies={tenzies}
+                    restart={restart}
+                    changeScreen={changeScreen}
+                />
+            )}
         </main>
     );
 }

@@ -16,6 +16,7 @@ main {
 }
 
 .inner-size {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,14 +24,6 @@ main {
     background-color: #f5f5f5;
     width: 320px;
     height: 320px;
-    border-radius: 10px;
-}
-
-.confetti {
-    position: absolute;
-    display: block;
-    justify-content: center;
-    align-items: center;
     border-radius: 10px;
 }
 
@@ -116,4 +109,80 @@ main {
 .change {
     transition-duration: 250ms;
     background-color: #fff;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 14px;
+    padding-top: 10px;
+    width: 100%;
+    filter: invert(10%) sepia(83%) saturate(471%) hue-rotate(160deg)
+        brightness(95%) contrast(97%);
+    height: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.menu > img:hover {
+    width: 25px;
+    height: 25px;
+}
+
+.menu > img {
+    cursor: pointer;
+    opacity: 0.9;
+    width: 27px;
+    height: 27px;
+}
+
+.melhor-pont {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    display: flex;
+    width: 180px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.best {
+    color: #2b283a;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.best-value {
+    color: #2b283a;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.you-won {
+    display: flex;
+    flex-direction: column;
+}
+
+.you-won > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-win {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-win > img {
+    width: 68px;
+    height: 55px;
+}
+
+.show-win > span {
+    color: #2b283a;
+    font-size: 32px;
+    font-weight: 800;
 }
