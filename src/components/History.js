@@ -11,7 +11,7 @@ function History(props) {
                     <span>You won!</span>
                     <img src={award} alt="#" />
                 </div>
-                <span className="best-value">15 rolls!</span>
+                <span className="best-value">{props.rolls} rolls!</span>
             </div>
         );
     }
@@ -21,11 +21,11 @@ function History(props) {
                 <img src={menu} alt="#" onClick={props.changeScreen} />
             </i>
 
-            <h2>History</h2>
+            <h2>Records</h2>
 
             <div className="melhor-pont">
                 <span className="best">Your best: </span>
-                <span className="best-value">15 rolls!</span>
+                <span className="best-value">{props.best} rolls!</span>
             </div>
             {props.tenzies ? <Won /> : ""}
 

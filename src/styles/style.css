@@ -142,7 +142,7 @@ main {
     margin-top: 10px;
     margin-bottom: 35px;
     display: flex;
-    width: 180px;
+    width: 65%;
     align-items: center;
     justify-content: space-between;
 }
