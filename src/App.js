@@ -81,6 +81,7 @@ function App() {
             setBest(aux);
             setScreen(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [row]);
 
     React.useEffect(() => {
@@ -88,6 +89,7 @@ function App() {
             const aux = record;
             localStorage.setItem("record", JSON.stringify(aux));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tenzies]);
 
     // Roll dices
