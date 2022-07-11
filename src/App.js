@@ -52,6 +52,7 @@ function App() {
 
     React.useEffect(() => {
         if (!screen) setBest(bestScore());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [screen]);
 
     React.useEffect(() => {
