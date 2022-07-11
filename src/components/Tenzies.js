@@ -1,6 +1,9 @@
 import React from "react";
 import Dice from "./Dice";
+import Tenzy from "./Tenzy";
+import Records from "./Records";
 import menu from "../images/menu.svg";
+import award from "../images/award.svg";
 
 function Tenzies(props) {
     function handler(diceId) {
@@ -25,18 +28,22 @@ function Tenzies(props) {
             <i className="menu close">
                 <img src={menu} alt="#" onClick={props.changeScreen} />
             </i>
-            <h2>Tenzies</h2>
-            <p>
-                Roll until all dice are the same. Click each die to freeze it at
-                its current value between rolls.
-            </p>
-            <div className="dices">{Dices}</div>
-            {!props.tenzies ? (
-                <i className="roll-button" onClick={props.rollDices}>
-                    Roll
-                </i>
+            <h2>{props.screen ? "Tenzies" : "Records"}</h2>
+            {props.screen ? (
+                <Tenzy
+                    award={award}
+                    Dices={Dices}
+                    tenzies={props.tenzies}
+                    rollDices={props.rollDices}
+                />
             ) : (
-                ""
+                <Records
+                    award={award}
+                    restart={props.restart}
+                    best={props.best}
+                    rolls={props.rolls}
+                    tenzies={props.tenzies}
+                />
             )}
         </div>
     );

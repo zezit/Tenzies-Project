@@ -27,7 +27,7 @@ main {
     border-radius: 10px;
 }
 
-.inner-size > h2 {
+.inner-size > div > h2 {
     font-family: Karla, sans-serif;
     font-style: normal;
     color: #2b283a;
@@ -37,7 +37,7 @@ main {
     letter-spacing: -0.03em;
 }
 
-.inner-size > p {
+.inner-size > div > p {
     max-width: 232.96px;
     margin-top: 7px;
     margin-bottom: 30px;
@@ -75,6 +75,13 @@ main {
     -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.inner-size > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .roll-button {
@@ -139,10 +146,11 @@ main {
 }
 
 .melhor-pont {
+    white-space: nowrap;
     margin-top: 10px;
     margin-bottom: 35px;
     display: flex;
-    width: 65%;
+    /* width: 65%; */
     align-items: center;
     justify-content: space-between;
 }
@@ -151,6 +159,7 @@ main {
     color: #2b283a;
     font-weight: 700;
     font-size: 20px;
+    margin-right: 10px;
 }
 
 .best-value {
@@ -188,9 +197,9 @@ main {
 }
 
 .close > img {
-    transition: all 500ms;
+    transition: 500ms ease-in-out;
 }
 
-.close > img:active {
+.close > img:hover {
     transform: rotate(360deg);
 }

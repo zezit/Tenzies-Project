@@ -1,7 +1,6 @@
 import React from "react";
 import Confetti from "react-confetti";
 import Tenzies from "./components/Tenzies";
-import History from "./components/History";
 import { nanoid } from "nanoid";
 
 function App() {
@@ -9,16 +8,13 @@ function App() {
         const number = [];
         record.forEach((element) => {
             number.push(element.rolls);
-            console.log("pushing: ", element.rolls);
         });
-        console.log("all scores: ", number);
         let aux = 99999999999;
         number.forEach((element) => {
             if (element < aux) {
                 aux = element;
             }
         });
-        console.log("best score:", aux);
         return aux;
     };
 
@@ -71,11 +67,9 @@ function App() {
             }
         }
         if (won) {
-            console.log("won", won);
             setTenzies(true);
             setRecord((prevRecord) => {
                 const newRecord = prevRecord;
-                console.log(newRecord);
                 newRecord.push({
                     key: nanoid(),
                     rolls: manyRolls,
@@ -91,7 +85,6 @@ function App() {
     React.useEffect(() => {
         if (tenzies) {
             const aux = record;
-            console.log("saving", aux);
             localStorage.setItem("record", JSON.stringify(aux));
         }
     }, [tenzies]);
@@ -113,6 +106,21 @@ function App() {
                         ...prevRow[i],
                     });
                 }
+            }
+            return newRow;
+        });
+    }
+
+    // coloca todos dados no seu estado inicial
+    function setNotHold() {
+        setRow((prevRow) => {
+            const newRow = [];
+            for (let i = 0; i < 10; i++) {
+                newRow.push({
+                    ...prevRow[i],
+                    hold: false,
+                    // number: 8,
+                });
             }
             return newRow;
         });
@@ -140,9 +148,11 @@ function App() {
 
     function changeScreen() {
         setScreen((prev) => !prev);
+        if (!screen && tenzies) restart();
     }
 
     function restart() {
+        setNotHold();
         rollDices();
         setRolls(0);
         setTenzies(false);
@@ -156,24 +166,17 @@ function App() {
             ) : (
                 ""
             )}
-            {screen ? (
-                <Tenzies
-                    rollDices={rollDices}
-                    dice={row}
-                    hold={hold}
-                    tenzies={tenzies}
-                    restart={restart}
-                    changeScreen={changeScreen}
-                />
-            ) : (
-                <History
-                    best={best}
-                    rolls={manyRolls}
-                    tenzies={tenzies}
-                    restart={restart}
-                    changeScreen={changeScreen}
-                />
-            )}
+            <Tenzies
+                screen={screen}
+                best={best}
+                rolls={manyRolls}
+                tenzies={tenzies}
+                restart={restart}
+                changeScreen={changeScreen}
+                rollDices={rollDices}
+                dice={row}
+                hold={hold}
+            />
         </main>
     );
 }
