@@ -5,15 +5,34 @@ import History from "./components/History";
 import { nanoid } from "nanoid";
 
 function App() {
-    localStorage.clear("record");
-    const initialArray = [];
-    for (let i = 0; i < 10; i++) {
-        const obj = {
-            number: i,
-            hold: false,
-            id: i,
-        };
-        initialArray.push(obj);
+    const bestScore = () => {
+        const number = [];
+        record.forEach((element) => {
+            number.push(element.rolls);
+            console.log("pushing: ", element.rolls);
+        });
+        console.log("all scores: ", number);
+        let aux = 99999999999;
+        number.forEach((element) => {
+            if (element < aux) {
+                aux = element;
+            }
+        });
+        console.log("best score:", aux);
+        return aux;
+    };
+
+    function initialArray() {
+        const initialArray = [];
+        for (let i = 0; i < 10; i++) {
+            const obj = {
+                number: Math.floor(Math.random() * 10),
+                hold: false,
+                id: i,
+            };
+            initialArray.push(obj);
+        }
+        return initialArray;
     }
 
     const [manyRolls, setRolls] = React.useState(0);
@@ -31,17 +50,13 @@ function App() {
         );
     });
 
-    function findBestScore() {
-        const number = [];
-        record.forEach((element) => {
-            number.push(element.number);
-        });
-        return Math.min(number);
-    }
-
-    const [row, setRow] = React.useState(initialArray);
-    const [best, setBest] = React.useState(findBestScore());
+    const [row, setRow] = React.useState(initialArray());
+    const [best, setBest] = React.useState(99999);
     const [screen, setScreen] = React.useState(true);
+
+    React.useEffect(() => {
+        if (!screen) setBest(bestScore());
+    }, [screen]);
 
     React.useEffect(() => {
         const toCompareNum = row[0].number;
@@ -55,8 +70,8 @@ function App() {
                 break;
             }
         }
-
         if (won) {
+            console.log("won", won);
             setTenzies(true);
             setRecord((prevRecord) => {
                 const newRecord = prevRecord;
@@ -67,7 +82,7 @@ function App() {
                 });
                 return newRecord;
             });
-            const aux = findBestScore();
+            const aux = bestScore();
             setBest(aux);
             setScreen(false);
         }
@@ -128,8 +143,8 @@ function App() {
     }
 
     function restart() {
+        rollDices();
         setRolls(0);
-        // rollDices();
         setTenzies(false);
         setScreen(true);
     }

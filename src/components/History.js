@@ -15,9 +15,10 @@ function History(props) {
             </div>
         );
     }
+
     return (
         <div className="inner-size">
-            <i className="menu">
+            <i className="menu close">
                 <img src={menu} alt="#" onClick={props.changeScreen} />
             </i>
 
@@ -25,7 +26,9 @@ function History(props) {
 
             <div className="melhor-pont">
                 <span className="best">Your best: </span>
-                <span className="best-value">{props.best} rolls!</span>
+                <span className="best-value">
+                    {props.best === 99999 ? "None" : `${props.best} rolls!`}
+                </span>
             </div>
             {props.tenzies ? <Won /> : ""}
 

@@ -22,7 +22,7 @@ function Tenzies(props) {
 
     return (
         <div className="inner-size">
-            <i className="menu">
+            <i className="menu close">
                 <img src={menu} alt="#" onClick={props.changeScreen} />
             </i>
             <h2>Tenzies</h2>
